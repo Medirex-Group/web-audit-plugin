@@ -37,6 +37,6 @@ Agent ponúkne uloženie po každom prehľade, takže ho môžete prijať vtedy 
 Na každom počítači, ktorý odosiela, pridajte dva riadky do `~/.zshenv`.
 ```sh
 export WEB_AUDIT_SHEET_URL="URL web aplikácie"
-export WEB_AUDIT_SHEET_KEY="rovnaký kľúč"
+export WEB_AUDIT_SHEET_KEY="súkromný kľúč"
 ```
 Potom požiadajte, napríklad `@web-audit sprav SEO audit na medirex.sk/blog a ulož to do sheetu`. Každý beh pridá novú záložku.
