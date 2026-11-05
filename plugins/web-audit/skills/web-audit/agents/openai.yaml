@@ -1,0 +1,5 @@
+interface:
+  display_name: Web Audit
+  short_description: Audit website content and SEO with a headless browser.
+policy:
+  allow_implicit_invocation: false

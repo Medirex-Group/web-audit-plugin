@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y", "@playwright/mcp@0.0.84",
+        "--headless", "--isolated",
+        "--viewport-size", "1280,720",
+        "--output-dir", "${PLUGIN_ROOT}/.runs",
+        "--user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+      ]
+    }
+  }
+}

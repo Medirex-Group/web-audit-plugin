@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "web-audit",
+  "version": "0.1.0",
+  "description": "Audit website content and SEO with a headless browser.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Web Audit",
+        "category": "Testing"
+      }
+    }
+  }
+}

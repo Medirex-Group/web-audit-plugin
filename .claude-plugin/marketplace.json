@@ -1,0 +1,12 @@
+{
+  "name": "web-audits",
+  "owner": { "name": "web-audits" },
+  "description": "Audit website content and SEO with a headless browser.",
+  "plugins": [
+    {
+      "name": "web-audit",
+      "source": "./plugins/web-audit",
+      "description": "Audit website content and SEO with a headless browser."
+    }
+  ]
+}
