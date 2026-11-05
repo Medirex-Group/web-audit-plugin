@@ -32,4 +32,4 @@ node /abs/path/to/plugin/scripts/send-to-sheet.mjs /abs/path/to/rows.json
 - `node` must be on the shell PATH.
 
 ## Setup, done once per user
-The user pastes a message from the owner with the web app URL and key. Write them to `~/.web-audit/sheet.json` as `{ "url": "...", "key": "..." }`, run `chmod 600` on the file, confirm in plain words, and never repeat the key. Run no audit. The URL and key never go in the repo.
+The user pastes a message from the owner with the web app URL and key. Write them to `~/.web-audit/sheet.json` as `{ "url": "...", "key": "..." }`, on a Mac run `chmod 600` on the file, confirm in plain words, and never repeat the key. Run no audit. The URL and key never go in the repo.
