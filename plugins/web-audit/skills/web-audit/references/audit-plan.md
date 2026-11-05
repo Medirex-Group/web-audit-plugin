@@ -11,11 +11,11 @@ Checks can also come from a preset instead of the request. If the request asks f
 1. Split the request into scopes - one scope per distinct target area.
 2. Split each scope into atomic checks - one check per single assertion.
 3. Break a multi-part check into named parts - each part is judged and reported on its own.
-4. Write each check as a pass condition - a concrete check is a yes/no test now, a quality intent (nothing broken) is carried as intent and made concrete at the Gate 3 sample.
+4. Write each check as a pass condition - a concrete check is a yes/no test now, a quality intent (nothing broken) is carried as intent and made concrete at the Contract 3 sample.
 5. Resolve each check's `screen` from the words - the check's mention, else the scope's mention, else `desktop` - split a both-screens request into two checks, one per screen.
 6. Derive `resolution` for each scope - see fields below.
 7. Assign a stable `scope_id` and `check_id` to every scope and check - lower-kebab-case.
-8. If the scope or target is ambiguous (which pages, which site), ask all open questions at once as a numbered list. Answer any question the user asks back, and re-ask what remains over as many rounds as needed until the scope is clear. Do not guess. What a quality intent means is settled at the Gate 3 sample, not here.
+8. If the scope or target is ambiguous (which pages, which site), ask all open questions at once as a numbered list. Answer any question the user asks back, and re-ask what remains over as many rounds as needed until the scope is clear. Do not guess. What a quality intent means is settled at the Contract 3 sample, not here.
 9. Once clear, build the plan internally and proceed to discovery. Scope and checks lock here and do not change in later stages. The checks are shown to the user once, at Contract 3.
 
 ## Internal structured plan
@@ -50,7 +50,7 @@ checks:
 ### check fields
 - `check_id` - stable id. Results address this check by id, never by its text.
 - `steps` - optional ordered interactions to perform before judging - click, type, fill, select, hover, press key. Empty for a static content check.
-- `assertion` - the pass condition, evaluated after any steps. Either a precise yes/no test, or a quality intent (for example `nothing looks broken`) that the agent turns into concrete extracted signals at the Gate 3 sample and freezes as the `probe`.
+- `assertion` - the pass condition, evaluated after any steps. Either a precise yes/no test, or a quality intent (for example `nothing looks broken`) that the agent turns into concrete extracted signals at the Contract 3 sample and freezes as the `probe`.
 - `parts` - named sub-requirements. Empty when the check is a single assertion.
 - `probe` - empty at plan time. Set and frozen in Contract 3 from one sample page - `locate`, `extract`, `pass_criteria`. See `discovery.md` and `judging.md`. This check's frozen `probe` is reused on every page in the scope.
 - `screen` - which screen the check is judged at.
@@ -89,7 +89,7 @@ Checks on each article
 Multiple scopes render as repeated `Scope` + `Checks` blocks, one per scope.
 
 ## Ambiguity and lock
-The agent asks only when something is ambiguous. It asks all open questions at once, numbered, and keeps the exchange open - the user may answer, answer partly, or ask the agent to explain a question. Repeat rounds until the scope is clear, then proceed - what a quality intent means is settled at the Gate 3 sample. With no scope ambiguity it proceeds to discovery without showing anything. Scope and checks lock here. The checks are shown once at Contract 3, the one approval stop.
+The agent asks only when something is ambiguous. It asks all open questions at once, numbered, and keeps the exchange open - the user may answer, answer partly, or ask the agent to explain a question. Repeat rounds until the scope is clear, then proceed - what a quality intent means is settled at the Contract 3 sample. With no scope ambiguity it proceeds to discovery without showing anything. Scope and checks lock here. The checks are shown once at Contract 3, the one approval stop.
 
 ## Rules
 - One assertion per check. A compound request is split into separate checks.

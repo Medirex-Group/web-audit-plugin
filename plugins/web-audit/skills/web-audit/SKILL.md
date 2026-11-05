@@ -17,7 +17,7 @@ Audit live website content with the bundled headless Playwright MCP server. Run 
 - Start the full audit only after the Contract 3 go-ahead.
 - Pace - wait at least 3s from loading one page to loading the next. This is a gap between pages, not a time limit per page.
 - A page error records `error` for that page and the run continues.
-- Verdicts come from facts the probe extracts, not visual guesses, so re-running the same page gives the same verdict. For a quality intent, the agent composes those signals at the Gate 3 sample and freezes them.
+- Verdicts come from facts the probe extracts, not visual guesses, so re-running the same page gives the same verdict. For a quality intent, the agent composes those signals at the Contract 3 sample and freezes them.
 - Interaction checks are supported - a check may click, type, or select, then assert the result. Every browser tool is allowed except `browser_run_code_unsafe`.
 - A scope or check may name a screen - mobile, desktop, or a width like 961px. Resize to it before judging, default desktop. "Both screens" is two checks, one per screen.
 - Contract 3 freezes each check's `probe` - locate, extract, pass criteria - from one sample page of the scope. Every page in the scope is judged with that same frozen probe, never re-derived.

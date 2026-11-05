@@ -20,7 +20,9 @@ function doPost(request) {
   try {
     const tab = createRunTab(payload.run);
     const headerAndRows = [COLUMN_HEADERS].concat(reportRows);
-    tab.getRange(1, 1, headerAndRows.length, COLUMN_HEADERS.length).setValues(headerAndRows);
+    const resultRange = tab.getRange(1, 1, headerAndRows.length, COLUMN_HEADERS.length);
+    resultRange.setNumberFormat('@');
+    resultRange.setValues(headerAndRows);
     return textResponse('ok ' + reportRows.length);
   } finally {
     scriptLock.releaseLock();

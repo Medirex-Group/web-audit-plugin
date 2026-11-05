@@ -6,7 +6,7 @@ Runs when the user asks to save to the Sheet, or when they accept the offer made
 Send once, after the inline report. If the user asked to save in this run, send without asking again. If the user did not ask, offer to save to the Sheet after the report and send only on a yes.
 
 ## Rows file
-Write the rows to a temporary file, same rows as the inline report.
+Write every Result record to a temporary file, passing pages included.
 ```json
 {
   "run": { "site": "medirex.sk", "date": "05-11-2026" },
@@ -26,7 +26,7 @@ Run the bundled sender `scripts/send-to-sheet.mjs` from this plugin, passing the
 ```sh
 node /abs/path/to/plugin/scripts/send-to-sheet.mjs /abs/path/to/rows.json
 ```
-- `ok <count>` means the Sheet got a new tab, report the tab name to the user.
+- `ok <count>` means the Sheet got a new tab, tell the user how many rows were saved.
 - Any other output is an error, tell the user and keep the inline report.
 - `sheet not set up` means the settings are missing - ask the user for the setup message from the owner, then send again.
 - `node` must be on the shell PATH.

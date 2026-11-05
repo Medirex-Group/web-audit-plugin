@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 
+const COLUMN_COUNT = 5;
+const SEND_TIMEOUT_MS = 60000;
 const settingsFilePath = join(homedir(), '.web-audit', 'sheet.json');
 
 let settings;
@@ -33,13 +35,20 @@ try {
   process.exit(1);
 }
 
+const rows = report?.rows;
+const rowsAreValid = Array.isArray(rows) && rows.length > 0 && rows.every((row) => Array.isArray(row) && row.length === COLUMN_COUNT);
+if (!rowsAreValid) {
+  console.error('rows file invalid - needs at least one row, each with ' + COLUMN_COUNT + ' columns');
+  process.exit(1);
+}
+
 let responseText;
 try {
   const response = await fetch(webAppUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ key: sharedKey, run: report.run, rows: report.rows }),
-    signal: AbortSignal.timeout(20000),
+    body: JSON.stringify({ key: sharedKey, run: report.run, rows }),
+    signal: AbortSignal.timeout(SEND_TIMEOUT_MS),
   });
   responseText = await response.text();
 } catch (sendError) {

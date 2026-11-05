@@ -17,7 +17,7 @@ Group by scope, then by check. Within a check, order `error`, `fail`, `partial`.
 Markdown tables, inline in the chat reply. No sentences outside tables except the scope line. Write a file only if the user asks.
 
 ## Optional Sheet output
-If the user asked to save to a Sheet, or accepts the offer made after the report, the same rows also go there. See `sheet-output.md`. The inline report still runs regardless.
+If the user asked to save to a Sheet, or accepts the offer made after the report, every Result record also goes there, passing pages included. See `sheet-output.md`. The inline report still runs regardless.
 
 ## Example
 Illustrative only, not the scope above.
