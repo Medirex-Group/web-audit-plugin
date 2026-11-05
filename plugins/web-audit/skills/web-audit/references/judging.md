@@ -15,7 +15,7 @@ Contract 3 already judged one URL per scope as that scope's Result #1 and froze 
 5. For each check, `browser_evaluate` to run the check's frozen `probe` - `locate` the target, `extract` the facts, apply `pass_criteria`. Use the same `probe` on every page, never re-derive it. If `locate` finds nothing, record `fail` with the missing target as evidence.
 6. Judge each part of a multi-part check against the frozen `pass_criteria`.
 
-A check may need to open linked pages - a product page to confirm it is still on sale, or a link to confirm it opens. A link is working when it returns status `200`. A status check is light and needs no 3s gap, but avoid large bursts to the same host. Opening a full page counts as a page visit and keeps the 3s gap.
+A check may need to open linked pages - a product page to confirm it is still on sale, or a link to confirm it opens. A link is working when it returns status `200`. Keep at least 1s between status checks. Opening a full page counts as a page visit and keeps the 3s gap.
 
 ## Interaction and state
 Interactions run against the live site and may submit forms, add to cart, or fire analytics - this is accepted. Cookies and storage persist within a run, so a check sensitive to first-visit state (for example a modal shown once per session) must clear the relevant storage with `browser_evaluate` before its steps, or record the residual state in `evidence`.
