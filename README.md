@@ -7,20 +7,20 @@ Audit obsahu a SEO webu cez headless prehliadač. Napíšte bežnými slovami, d
 
 ## Inštalácia - aplikácia ChatGPT
 1. Otvorte `Settings`, potom `Plugins`.
-2. Pridajte marketplace, zadajte `<owner>/<repo>`, potvrďte.
+2. Pridajte marketplace, zadajte `Medirex-Group/web-audit-plugin`, potvrďte.
 3. Nájdite `web-audit` v zozname, zvoľte `Install`.
 4. Spustite nový chat.
 
 ## Inštalácia - aplikácia Claude Code
 1. V záložke `Code` zvoľte tlačidlo `+`, potom `Add plugins`.
-2. Pridajte marketplace, zadajte `<owner>/<repo>`, potvrďte.
+2. Pridajte marketplace, zadajte `Medirex-Group/web-audit-plugin`, potvrďte.
 3. Nájdite `web-audit`, zvoľte `Install`, vyberte rozsah `User`.
 4. Spustite nový chat.
 
 ## Inštalácia - Claude Code CLI
 Spustite v termináli, potom otvorte novú reláciu.
 ```sh
-claude plugin marketplace add <owner>/<repo>
+claude plugin marketplace add Medirex-Group/web-audit-plugin
 claude plugin install web-audit@web-audits --scope user
 ```
 
