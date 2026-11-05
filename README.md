@@ -3,18 +3,20 @@
 Audit obsahu a SEO webu. Napíšte bežnými slovami, čo skontrolovať, a dostanete prehľad.
 
 ## Požiadavky
-Node.js a Google Chrome. Ak ich už máte, tento krok preskočte.
+Node.js a Google Chrome. Ak ich už máte, tento krok preskočte. Chrome sa na konci raz otvorí, potom ho môžete zavrieť.
 
 **Mac**
 ```sh
 brew install node
 brew install --cask google-chrome
+open -a "Google Chrome"
 ```
 
 **Windows**
 ```powershell
 winget install OpenJS.NodeJS.LTS
 winget install Google.Chrome
+Start-Process chrome
 ```
 
 ## Inštalácia pluginu
