@@ -23,3 +23,4 @@ Audit live website content with the bundled headless Playwright MCP server. Run 
 - Contract 3 freezes each check's `probe` - locate, extract, pass criteria - from one sample page of the scope. Every page in the scope is judged with that same frozen probe, never re-derived.
 - Never show the user technical internals - no selectors, DOM talk, link counts, or how something was found. Speak in plain words. Do whatever it takes under the hood, and when genuinely unsure ask the user a plain-language question.
 - The inline report always runs. The Sheet write happens when the user asks, or when they accept the offer made after the report, and never blocks or replaces the inline report.
+- If a message gives the Sheet URL and key, save them per `references/sheet-output.md` and run no audit.

@@ -32,11 +32,9 @@ Napíšte `@web-audit` a povedzte, čo skontrolovať.
 Agent sa spýta, len ak je niečo nejasné, ukáže rozsah a kontroly na potvrdenie, potom spustí a vráti prehľad.
 
 ## Uloženie výsledkov do Google Sheetu
-Agent ponúkne uloženie po každom prehľade, takže ho môžete prijať vtedy namiesto žiadania vopred.
-
-Na každom počítači, ktorý odosiela, pridajte dva riadky do `~/.zshenv`.
-```sh
-export WEB_AUDIT_SHEET_URL="URL web aplikácie"
-export WEB_AUDIT_SHEET_KEY="súkromný kľúč"
+Pred prvým uložením raz pošlite v chate správu so súkromnými údajmi od správcu. Postup je rovnaký v aplikácii ChatGPT, aplikácii Claude Code aj v Claude Code CLI.
+```text
+@web-audit nastav Google Sheet - URL <URL od správcu> - kľúč <kľúč od správcu>
 ```
-Potom požiadajte, napríklad `@web-audit sprav SEO audit na medirex.sk/blog a ulož to do sheetu`. Každý beh pridá novú záložku.
+
+Agent potom ponúkne uloženie po každom prehľade. Môžete oň požiadať aj vopred, napríklad `@web-audit sprav SEO audit na medirex.sk/blog a ulož to do sheetu`. Každé uloženie pridá novú záložku.

@@ -1,9 +1,21 @@
 import { readFileSync } from 'node:fs';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
 
-const webAppUrl = process.env.WEB_AUDIT_SHEET_URL;
-const sharedKey = process.env.WEB_AUDIT_SHEET_KEY;
+const settingsFilePath = join(homedir(), '.web-audit', 'sheet.json');
+
+let settings;
+try {
+  settings = JSON.parse(readFileSync(settingsFilePath, 'utf8'));
+} catch (settingsError) {
+  console.error('sheet not set up - ' + settingsError.message);
+  process.exit(1);
+}
+
+const webAppUrl = settings?.url;
+const sharedKey = settings?.key;
 if (!webAppUrl || !sharedKey) {
-  console.error('set WEB_AUDIT_SHEET_URL and WEB_AUDIT_SHEET_KEY');
+  console.error('sheet not set up - url or key missing');
   process.exit(1);
 }
 

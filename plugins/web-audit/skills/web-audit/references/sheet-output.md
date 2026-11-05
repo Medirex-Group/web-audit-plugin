@@ -1,6 +1,6 @@
 # Optional - send the report to a Google Sheet
 
-Runs when the user asks to save to the Sheet, or when they accept the offer made after the report. The agent never holds the key. It writes a rows file, then runs the bundled sender, which reads the secret from its environment and POSTs to the Sheet's Apps Script web app. The web app appends a new tab and never edits existing ones.
+Runs when the user asks to save to the Sheet, or when they accept the offer made after the report. The agent writes a rows file, then runs the bundled sender, which reads the URL and key from `~/.web-audit/sheet.json` and POSTs to the Sheet's Apps Script web app. The web app appends a new tab and never edits existing ones.
 
 ## When to send
 Send once, after the inline report. If the user asked to save in this run, send without asking again. If the user did not ask, offer to save to the Sheet after the report and send only on a yes.
@@ -28,8 +28,8 @@ node /abs/path/to/plugin/scripts/send-to-sheet.mjs /abs/path/to/rows.json
 ```
 - `ok <count>` means the Sheet got a new tab, report the tab name to the user.
 - Any other output is an error, tell the user and keep the inline report.
-- The sender exits non-zero if the env vars are missing, surface that message.
+- `sheet not set up` means the settings are missing - ask the user for the setup message from the owner, then send again.
 - `node` must be on the shell PATH.
 
-## Setup, done once by the owner
-See the README. The web app URL and shared key live in the env vars `WEB_AUDIT_SHEET_URL` and `WEB_AUDIT_SHEET_KEY`, never in the repo.
+## Setup, done once per user
+The user pastes a message from the owner with the web app URL and key. Write them to `~/.web-audit/sheet.json` as `{ "url": "...", "key": "..." }`, run `chmod 600` on the file, confirm in plain words, and never repeat the key. Run no audit. The URL and key never go in the repo.
